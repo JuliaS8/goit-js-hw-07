@@ -52,14 +52,14 @@ createButton.addEventListener('click', event => {
 });
 
 function createBoxes(amount) {
+  let boxesHTML = '';
+
   for (let i = 0; i < amount; i++) {
     const size = 30 + i * 10;
-    const newBox = document.createElement('div');
-    boxesContainer.appendChild(newBox);
-    newBox.style.backgroundColor = getRandomHexColor();
-    newBox.style.width = `${size}px`;
-    newBox.style.height = `${size}px`;
+    const color = getRandomHexColor();
+    boxesHTML += `<div style="width: ${size}px; height: ${size}px; background-color: ${color};"></div>`;
   }
+  boxesContainer.innerHTML = boxesHTML;
 }
 
 function destroyBoxes() {
